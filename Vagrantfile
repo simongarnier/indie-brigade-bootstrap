@@ -70,4 +70,9 @@ Vagrant.configure(2) do |config|
   #   sudo apt-get install -y apache2
   # SHELL
   config.ssh.insert_key = false
+
+  config.vm.provision :shell, privileged: false do |shell|
+    shell.inline = "echo 'export RECAPTCHA_PUBLIC_KEY=6LcRlxUTAAAAAHyM-VVyecnQjGNISIBtNp_xW61G' > ~/.bashrc"
+    shell.inline = "echo 'export RECAPTCHA_PRIVATE_KEY=ASK_SIMON' > ~/.bashrc"
+  end
 end
