@@ -72,7 +72,11 @@ Vagrant.configure(2) do |config|
   config.ssh.insert_key = false
 
   config.vm.provision :shell, privileged: false do |shell|
-    shell.inline = "echo 'export RECAPTCHA_PUBLIC_KEY=6LcRlxUTAAAAAHyM-VVyecnQjGNISIBtNp_xW61G' > ~/.bashrc"
-    shell.inline = "echo 'export RECAPTCHA_PRIVATE_KEY=ASK_SIMON' > ~/.bashrc"
+    shell.inline = <<-END
+      echo 'export PATH=$HOME/.rbenv/bin:$PATH' > ~/.bashrc;
+      echo 'eval "$(rbenv init -)"' >> ~/.bashrc;
+      echo 'export RECAPTCHA_PUBLIC_KEY=6LcRlxUTAAAAAHyM-VVyecnQjGNISIBtNp_xW61G' >> ~/.bashrc;
+      echo 'export RECAPTCHA_PRIVATE_KEY=6LcRlxUTAAAAAI-Gu359EulHo3NrhRmwssNr25WO' >> ~/.bashrc;
+    END
   end
 end
