@@ -77,6 +77,7 @@ Vagrant.configure(2) do |config|
       echo 'eval "$(rbenv init -)"' >> ~/.bashrc;
       echo 'export RECAPTCHA_PUBLIC_KEY=6LcRlxUTAAAAAHyM-VVyecnQjGNISIBtNp_xW61G' >> ~/.bashrc;
       echo 'export RECAPTCHA_PRIVATE_KEY=6LcRlxUTAAAAAI-Gu359EulHo3NrhRmwssNr25WO' >> ~/.bashrc;
+      echo 'source .bash_aliases' >> ~/.bashrc
     END
   end
 end
